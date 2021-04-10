@@ -2,86 +2,42 @@
 <html lang="en-us">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>First Chart</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" media="screen">
   <title>Asif Makes Technology</title>
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
-    h1 {
-      color: darkgray;
-      background-color: darkolivegreen;
-      padding: 0%;
-      width: 100%;
-      height: 40px;
-      text-align: center;
-    }
-    .left-content {
-      float: left;
-    }
-    .table {
-      float: right;
-      margin-top: 50px;
-      margin-right: 50px;
-    }
-    img {
-      padding: 20px;
-      background-color: red;
-      border: solid blue 3px;
-    }
-    li {
-      font-size: 20px;
-      list-style-type: lower-greek;
-    }
-    a {
-      text-decoration: none;
-      color: darkolivegreen;
-    }
-  </style>
+  <script src="data.json"></script>
+  <script src="app.js"></script>
 </head>
 
 <body>
 
-  <h1>Asif Hazrat</h1>
+  <div class="jumbotron" id='grad'>
+    <h1 class="display-4">Jello, world!</h1>
+    <p class="lead">This is a simple simulation. You have <span id='countdown'>5</span> hours left to figure out what you are doing. </p>
+    <hr class="my-4">
+    <p>You may use whatever means are necessary. We recommend using the latest tools as they are optimized for the current situation. They run in the cloud and provide you with a nice summary while scaling intelligently.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div>
 
   <div class="left-content">
-    <img width='200' src='https://cdn.vox-cdn.com/thumbor/cQcq9U__GJ-mejyB43KqpOYhr6Q=/0x0:1700x960/625x625/filters:focal(714x344:986x616):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/57514059/mario.0.jpg'>
-  
-    <p>Hello everybody! I am a Data Engineer and I love Super Mario! </p>
-  
-    <p>Have a Super Mar10! </p>
-  
     <ul>
       <li><a href='https://www.linkedin.com/in/asifhazrat/'>🏄‍♂️ My LinkedIn</a></li>
       <li><a href='https://github.com/ahazrat'>🎻 My Github</a></li>
       <li><a href='https://twitter.com/ahazrat'>🎭 My Twitter</a></li>
     </ul>
-
   </div>
 
-  <table border="5" class="table">
-    <thead>
-      <tr>
-        <th>Books</th>
-        <th>Movies</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Seveneves</td>
-        <td>The Matrix</td>
-      </tr>
-      <tr>
-        <td>Diamond Age</td>
-        <td>Braveheart</td>
-      </tr>
-      <tr>
-        <td>Cryptonomicon</td>
-        <td>Pulp Fiction</td>
-      </tr>
-    </tbody>
-  </table>
-  
+  <table class="table" id='table'></table>
+
 </body>
 
 </html>
