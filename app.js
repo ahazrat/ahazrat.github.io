@@ -7,27 +7,54 @@ moreData = {
 
 function createMajorTiles() {
     dataMajorTiles = [
-        {'text': 'For recruiters'},
-        {'text': 'For students'},
-        {'text': 'For founders'},
+        {
+            'title': 'for Recruiters',
+            'text': 'Common details related to career opportunities',
+            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rdVXxZSvmtgv2dEmlwYZygHaEL%26pid%3DApi&f=1',
+        },
+        {
+            'title': 'for Students',
+            'text': 'Options to help you on your learning journey',
+            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JgC3I2Z476tESI-G08DShgHaEL%26pid%3DApi&f=1',
+        },
+        {
+            'title': 'for Founders',
+            'text': 'Opportunities for collaboration on long-term projects',
+            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fak0.picdn.net%2Fshutterstock%2Fvideos%2F4055320%2Fthumb%2F1.jpg%3Fi10c%3Dimg.resize(height%3A160)&f=1&nofb=1',
+        },
     ]
-    selMajorTiles = divBodyContainer
+    tileCards = divBodyContainer
+        .append('div').classed('row', true)
+            .attr('id', 'major-tiles')
+            .style('background-color', '#888')
+            .style('padding', '20px')
+        .selectAll('div').data(dataMajorTiles).enter()
+        .append('div').classed('col', true) //.attr('align', 'center')
+        .append('div').classed('card', true)
+    // card images
+    tileCards
+        .append('img')
+        .classed('card-img-top', true)
+        .attr('src', d => d.image)
+    tileCardBodies = tileCards
         .append('div')
-        .classed('row', true)
-        .attr('id', 'major-tiles')
-        .style('background-color', 'green')
-    selMajorTiles
-        .selectAll('div')
-        .data(dataMajorTiles)
-        .enter()
-        .append('div')
-        .classed('col-sm', true)
-        .append('div')
-        .classed('card', true)
-        .style('margin', '10px')
-        .style('height', '100px')
-        .style("width", "18rem")
+        .classed('card-body', true)
+    // card titles
+    tileCardBodies
+        .append('h5')
+        .classed('card-title', true)
+        .text(d => d.title)
+    // card main text
+    tileCardBodies
+        .append('p')
+        .classed('card-text', true)
         .text(d => d.text)
+    // card buttons
+    tileCardBodies
+        .append('a')
+        .classed('btn btn-primary', true)
+        .attr('href', '#') // replace with new pages for each
+        .text(d => `Click here ${d.title}`)
 }
 
 function createSocialLinks() {
