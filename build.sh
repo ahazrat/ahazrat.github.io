@@ -1,11 +1,15 @@
 #!/bin/sh
 containing_directory="~/Documents/projects"
 project_name="ahazrat.github.io"
-c="build.log"
+build_log_filename="build.log"
 build_log_filepath="$containing_directory/$project_name/$project_name"
+divider="==========================="
+# commit_message="automated build"
+commit_message="updated build script"
 
-echo '===========================' >> $build_log_filepath
-date  >> $build_log_filepath
+echo $divider >> $build_log_filepath
+date >> $build_log_filepath
+echo $commit_message >> $build_log_filepath
 git add .
-git commit -m 'automated build'
+git commit -m $commit_message
 git push
