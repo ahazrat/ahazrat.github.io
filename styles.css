@@ -1,4 +1,9 @@
 
 #grad {
   background-image: linear-gradient(to bottom right, olive, skyblue);
+  margin-bottom: 0px;
+}
+
+div.container-fluid {
+  padding: 0;
 }

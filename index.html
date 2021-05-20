@@ -4,14 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- jquery -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- bootstrap js -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
-  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <!-- d3 -->
+  <script src="https://unpkg.com/d3@6.7.0/dist/d3.min.js"></script>
+  <!-- plotly -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <!-- custom styles -->
   <link rel="stylesheet" type="text/css" href="styles.css" media="screen">
+  <!-- bootstrap styles -->
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" media="screen">
+  <!-- title -->
   <title>Asif Builds Technology</title>
-  <script src="app.js"></script>
 </head>
 
 <body>
@@ -22,18 +28,18 @@
     <h1 class="display-4">Jello, world!</h1>
     <p class="lead">This is a simple simulation. You have <span id='countdown'>5</span> hours left to figure out what you are doing. </p>
     <hr class="my-4">
-    <p>You may use whatever means are necessary. We recommend using the latest tools as they are optimized for the current situation. They run in the cloud and provide you with a nice summary while scaling intelligently.</p>
+    <p>We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud and provide a nice summary while scaling intelligently.</p>
     <p class="lead">
       <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
     </p>
   </div>
 
-  <div class="left-content">
-    <ul id='socialLinks'></ul>
-  </div>
+  <div class="left-content"></div>
 
-  <table class="table" id='table'></table>
+    <!-- app js -->
+    <script src="app.js"></script>
 
+    <!-- end html body -->
 </body>
 
 </html>

@@ -3,8 +3,8 @@ GitHub Pages Website
 
 ### To Do
 1. Major tiles
-    - For founders
     - For recruiters
+    - For founders
     - For students
 1. Project tree
     - Project (App) completeness

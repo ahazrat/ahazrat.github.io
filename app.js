@@ -1,52 +1,70 @@
 
-// function createTable(d) {
-//     table = d3.select('#table')
-//     thead = table.append('thead')
-//     tbody = table.append('tbody')
-//     thead.append
-//     console.log(thead)
-// }
-
-// d3.json('data.json').then(data => {
-
-//     console.log(data)
-//     createTable(data)
-// })
-
+// create a table with this data
 moreData = {
     "movies": ["The Matrix", "Braveheart", "Pulp Fiction"],
     "books": ["Seveneves", "Diamond Age", "Cryptonomicon"]
 }
 
-leftContent = [
-    {
-        'text': '🏄‍♂️ LinkedIn',
-        'link': 'https://www.linkedin.com/in/asifhazrat/'
-    }
-    // <!-- <li><a href='https://www.linkedin.com/in/asifhazrat/'>🏄‍♂️ LinkedIn</a></li>
-    // <li><a href='https://github.com/ahazrat'>🎻 Github</a></li>
-    // <li><a href='https://twitter.com/ahazrat'>🎭 Twitter</a></li> -->
+function createMajorTiles() {
+    dataMajorTiles = [
+        {'text': 'For recruiters'},
+        {'text': 'For students'},
+        {'text': 'For founders'},
+    ]
+    selMajorTiles = divBodyContainer
+        .append('div')
+        .classed('row', true)
+        .attr('id', 'major-tiles')
+        .style('background-color', 'green')
+    selMajorTiles
+        .selectAll('div')
+        .data(dataMajorTiles)
+        .enter()
+        .append('div')
+        .classed('col-sm', true)
+        .append('div')
+        .classed('card', true)
+        .style('margin', '10px')
+        .style('height', '100px')
+        .style("width", "18rem")
+        .text(d => d.text)
+}
 
-]
-
-function initPageHome() {
-    console.log(leftContent.length)
-    console.log(leftContent[0].text)
-    
-    var socialLinks = d3.select('#socialLinks')
+function createSocialLinks() {
+    socialLinksData = [
+        {
+            'text': '🏄‍♂️ LinkedIn',
+            'link': 'https://www.linkedin.com/in/asifhazrat/'
+        },
+        {
+            'text': '🎻 Github',
+            'link': 'https://github.com/ahazrat'
+        },
+        {
+            'text': '🎭 Twitter',
+            'link': 'https://twitter.com/ahazrat'
+        },
+    ]
+    divSocialLinks = d3.select('.container-fluid')
+        .append('div')
+        .attr('id', 'social-links')
+    divSocialLinks
+        .append('ul')
         .selectAll('li')
-        .data(leftContent)
-
-    console.log(socialLinks)
-
-    socialLinks.append('li')
-    console.log('test')
-
-    socialLinks
+        .data(socialLinksData)
         .enter()
         .append('li')
-        .text('fghf')
+        .append('a')
+        .attr('href', d => d.link)
+        .text(d => d.text)
+}
+
+function initPageHome() {
+    divBodyContainer = d3.select('body')
+        .append('div')
+        .classed('container-fluid', true)
+    createMajorTiles()
+    createSocialLinks()
 }
 
 initPageHome()
-console.log('done')
