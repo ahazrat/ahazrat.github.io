@@ -14,3 +14,4 @@ GitHub Pages Website
     - Data visualization
     - Real live feed of app metrics
     - Graphical resume
+    - https://animejs.com/
