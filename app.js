@@ -5,6 +5,15 @@ moreData = {
     "books": ["Seveneves", "Diamond Age", "Cryptonomicon"]
 }
 
+function createRow(rowId) {
+    newRow = divBodyContainer
+        .append('div')
+        .classed('row', true)
+        .attr('id', rowId)
+        .style('padding', '20px')
+    return newRow
+}
+
 function createMajorTiles() {
     dataMajorTiles = [
         {
@@ -23,13 +32,11 @@ function createMajorTiles() {
             'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fak0.picdn.net%2Fshutterstock%2Fvideos%2F4055320%2Fthumb%2F1.jpg%3Fi10c%3Dimg.resize(height%3A160)&f=1&nofb=1',
         },
     ]
-    tileCards = divBodyContainer
-        .append('div').classed('row', true)
-            .attr('id', 'major-tiles')
-            .style('background-color', '#888')
-            .style('padding', '20px')
+    majorTilesRow = createRow('major-tiles-row')
+    tileCards = majorTilesRow
+            .style('background-color', '#aaa')
         .selectAll('div').data(dataMajorTiles).enter()
-        .append('div').classed('col', true) //.attr('align', 'center')
+        .append('div').classed('col', true)
         .append('div').classed('card', true)
     // card images
     tileCards
@@ -61,29 +68,29 @@ function createSocialLinks() {
     socialLinksData = [
         {
             'text': '🏄‍♂️ LinkedIn',
-            'link': 'https://www.linkedin.com/in/asifhazrat/'
+            'link': 'https://www.linkedin.com/in/asifhazrat/',
+            'imgUrl': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.v3ChK_hz_r6OabSrj8xV6gHaHa%26pid%3DApi&f=1',
         },
         {
             'text': '🎻 Github',
-            'link': 'https://github.com/ahazrat'
+            'link': 'https://github.com/ahazrat',
+            'imgUrl': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.aWe4uk00hCCgGY_kieUvswHaHa%26pid%3DApi&f=1',
         },
         {
             'text': '🎭 Twitter',
-            'link': 'https://twitter.com/ahazrat'
+            'link': 'https://twitter.com/ahazrat',
+            'imgUrl': 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F2016%2F07%2FTwitter-High-Quality-PNG.png&f=1&nofb=1',
         },
     ]
-    divSocialLinks = d3.select('.container-fluid')
-        .append('div')
-        .attr('id', 'social-links')
-    divSocialLinks
-        .append('ul')
-        .selectAll('li')
-        .data(socialLinksData)
-        .enter()
-        .append('li')
-        .append('a')
-        .attr('href', d => d.link)
-        .text(d => d.text)
+    socialLinksRow = createRow('social-links-row')
+    socialLinksRow
+        .selectAll('div').data(socialLinksData).enter()
+        .append('div').classed('col', true)
+        .attr('align', 'center')
+        .append('a').attr('href', d => d.link)
+        .attr('target', '_blank')
+        .append('img').attr('src', d => d.imgUrl).attr('height', '300px')
+        .html(d => d.text)
 }
 
 function addAnimations() {
@@ -110,6 +117,25 @@ function addAnimations() {
     })
 }
 
+function pullWeather() {
+    apiKey = 'b9cf02917e304aaf876170457212105'
+    city = 'chicago'
+    url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
+    weatherRow = createRow('weather-row')
+    d3.json(url).then(data => {
+        console.log(data)
+        weatherRow
+            .append('div').classed('col', true)
+            .append('div').classed('card weather-card', true)
+            .html(JSON.stringify(data.location))
+            weatherRow
+            .selectAll('div').data(Object.entries(data.current)).enter()
+            .append('div').classed('col', true)
+            .append('div').classed('card weather-card', true)
+            .html(d => `<h3>${d[0]}</h3><p>${d[1]}</p>`)
+    })
+}
+
 function initPageHome() {
     divBodyContainer = d3.select('body')
         .append('div')
@@ -117,6 +143,7 @@ function initPageHome() {
     createMajorTiles()
     createSocialLinks()
     addAnimations()
+    pullWeather()
 }
 
 initPageHome()
