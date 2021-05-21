@@ -2,10 +2,9 @@
 GitHub Pages Website
 
 ### To Do
-1. Major tiles
-    - For recruiters
-    - For founders
-    - For students
+1. animations
+1. live api pull
+1. Pages for each major tile
 1. Project tree
     - Project (App) completeness
     - Security Awareness

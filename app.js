@@ -86,12 +86,37 @@ function createSocialLinks() {
         .text(d => d.text)
 }
 
+function addAnimations() {
+    anime({
+        targets: '.display-4',
+        translateX: 250,
+        delay: 1000,
+        duration: 1000
+    })
+    spanCountdown = document.querySelector('#countdown')
+    animeData = {
+        secondsLeft: 1000
+    }
+    anime({
+        targets: animeData,
+        secondsLeft: 0,
+        round: 1,
+        easing: 'linear',
+        delay: 1000,
+        duration: 1000 * 1000,
+        update: function() {
+            spanCountdown.innerHTML = animeData.secondsLeft
+        }
+    })
+}
+
 function initPageHome() {
     divBodyContainer = d3.select('body')
         .append('div')
         .classed('container-fluid', true)
     createMajorTiles()
     createSocialLinks()
+    addAnimations()
 }
 
 initPageHome()
