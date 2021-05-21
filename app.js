@@ -8,7 +8,7 @@ moreData = {
 function createBodyContainer() {
     bodyContainerDiv = d3.select('body')
         .append('div')
-        .classed('container-fluid', true)
+        .classed('container-fluid gradient', true)
     return bodyContainerDiv
 }
 
@@ -23,7 +23,9 @@ function createRow(rowId) {
 
 function createJumbotron() {
     // jumbotronRow = createRow('jumbotron-row').style('width', '100%')
-    jumbotron = bodyContainerDiv.append('div').classed('jumbotron gradient', true)
+    jumbotron = bodyContainerDiv
+        .append('div').classed('jumbotron', true)
+        .style('background-color', 'rgba(255, 255, 255, 0.2)')
     jumbotron.append('h1').classed('display-4', true).html('jello, world')
     jumbotron.append('p').classed('lead', true).html(`This is a simple simulation. You have <span id='countdown'>5</span> seconds left to figure out what you are doing.`)
     jumbotron.append('hr').classed('my-4', true)
@@ -55,7 +57,7 @@ function createMajorTiles() {
     ]
     majorTilesRow = createRow('major-tiles-row')
     tileCards = majorTilesRow
-            .style('background-color', '#aaa')
+            .style('background-color', 'rgba(220, 220, 220, 0.3)')
         .selectAll('div').data(dataMajorTiles).enter()
         .append('div').classed('col', true)
         .append('div').classed('card', true)
@@ -110,8 +112,10 @@ function createSocialLinks() {
         .attr('align', 'center')
         .append('a').attr('href', d => d.link)
         .attr('target', '_blank')
-        .append('img').attr('src', d => d.imgUrl).attr('height', '300px')
-        .html(d => d.text)
+        .append('img')
+        .attr('src', d => d.imgUrl)
+        .attr('height', '300px')
+        .style('border-radius', '10px')
 }
 
 function addAnimations() {

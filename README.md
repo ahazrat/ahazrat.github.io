@@ -2,7 +2,7 @@
 GitHub Pages Website
 
 ### To Do
-1. stretch background transition color to whole page
+1. animate colors in background
 1. Better look for live weather data
 1. replace img links with imgur hosted links
 1. Pages for each major tile

@@ -5,7 +5,7 @@ build_log_filename="build.log"
 build_log_filepath="$containing_directory/$project_name/$build_log_filename"
 divider="==========================="
 # commit_message="automated build"
-commit_message="move all html into js"
+commit_message="stretch background transition color to whole page"
 
 echo $divider >> $build_log_filepath
 date >> $build_log_filepath
