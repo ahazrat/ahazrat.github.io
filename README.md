@@ -2,8 +2,6 @@
 GitHub Pages Website
 
 ### To Do
-1. Better look for Social Links
-1. move all html into js
 1. stretch background transition color to whole page
 1. Better look for live weather data
 1. replace img links with imgur hosted links

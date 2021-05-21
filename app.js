@@ -5,13 +5,34 @@ moreData = {
     "books": ["Seveneves", "Diamond Age", "Cryptonomicon"]
 }
 
+function createBodyContainer() {
+    bodyContainerDiv = d3.select('body')
+        .append('div')
+        .classed('container-fluid', true)
+    return bodyContainerDiv
+}
+
 function createRow(rowId) {
-    newRow = divBodyContainer
+    newRow = bodyContainerDiv
         .append('div')
         .classed('row', true)
         .attr('id', rowId)
         .style('padding', '20px')
     return newRow
+}
+
+function createJumbotron() {
+    // jumbotronRow = createRow('jumbotron-row').style('width', '100%')
+    jumbotron = bodyContainerDiv.append('div').classed('jumbotron gradient', true)
+    jumbotron.append('h1').classed('display-4', true).html('jello, world')
+    jumbotron.append('p').classed('lead', true).html(`This is a simple simulation. You have <span id='countdown'>5</span> seconds left to figure out what you are doing.`)
+    jumbotron.append('hr').classed('my-4', true)
+    jumbotron.append('p').text('We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud while scaling intelligently.')
+    jumbotron
+        .append('a').classed('btn btn-primary btn-lg', true)
+        .attr('href', '#')
+        .attr('role', 'button')
+        .html('Learn more')
 }
 
 function createMajorTiles() {
@@ -120,7 +141,7 @@ function addAnimations() {
 function pullWeather() {
     apiKey = 'b9cf02917e304aaf876170457212105'
     city = 'chicago'
-    url = `http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
+    url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=no`
     weatherRow = createRow('weather-row')
     d3.json(url).then(data => {
         console.log(data)
@@ -137,9 +158,8 @@ function pullWeather() {
 }
 
 function initPageHome() {
-    divBodyContainer = d3.select('body')
-        .append('div')
-        .classed('container-fluid', true)
+    bodyContainerDiv = createBodyContainer()
+    createJumbotron()
     createMajorTiles()
     createSocialLinks()
     addAnimations()
