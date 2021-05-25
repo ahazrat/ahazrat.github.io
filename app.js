@@ -206,7 +206,7 @@ function createWeatherColumn(row, weatherData) {
         .html(d => createCardFromTuple(d))
 }
 
-function initPageHome() {
+window.addEventListener('load', () => {
     weatherApiKey = 'b9cf02917e304aaf876170457212105'
     bodyContainerDiv = createBodyContainer()
     createJumbotron()
@@ -214,6 +214,4 @@ function initPageHome() {
     createSocialLinks()
     addAnimations()
     pullIpData()
-}
-
-initPageHome()
+})
