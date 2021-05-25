@@ -2,10 +2,10 @@
 GitHub Pages Website
 
 ### To Do
-1. add musical tiles to play sounds
-1. show live time
+1. play mellow background music on page load
 1. Pages for each major tile
 1. animate colors in background
+1. move time into top right of screen
 1. Project tree
     - Project (App) completeness
     - Security Awareness

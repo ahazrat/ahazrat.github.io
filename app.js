@@ -27,6 +27,7 @@ function createJumbotron() {
         .append('div').classed('jumbotron', true)
         .style('background-color', 'rgba(255, 255, 255, 0.2)')
     jumbotron.append('h1').classed('display-4', true).html('jello, world')
+    jumbotron.append('h3').html('The time now is <span id="clock"><span>')
     jumbotron.append('p').classed('lead', true).html(`This is a simple simulation. You have <span id='countdown'>5</span> seconds left to figure out what you are doing.`)
     jumbotron.append('hr').classed('my-4', true)
     jumbotron.append('p').text('We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud while scaling intelligently.')
@@ -242,6 +243,28 @@ function createSoundTiles() {
     })
 }
 
+function setClock() {
+    clock = document.getElementById('clock')
+
+    function time() {
+        d = new Date()
+        h = d.getHours()
+        ampm = ' am'
+        if (h > 12) {
+            h = h - 12
+            ampm = ' pm'
+        }
+        s = d.getSeconds()
+        m = d.getMinutes()
+        clock.textContent = 
+            ("0" + h).substr(-2) + ":" + 
+            ("0" + m).substr(-2) + ":" + 
+            ("0" + s).substr(-2) + ampm
+    }
+
+    setInterval(time, 1000)
+}
+
 window.addEventListener('load', () => {
     weatherApiKey = 'b9cf02917e304aaf876170457212105'
     bodyContainerDiv = createBodyContainer()
@@ -250,5 +273,6 @@ window.addEventListener('load', () => {
     createMajorTiles()
     createSocialLinks()
     addAnimations()
+    setClock()
     // pullIpData()
 })
