@@ -42,17 +42,17 @@ function createMajorTiles() {
         {
             'title': 'for Recruiters',
             'text': 'Common details related to career opportunities',
-            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.rdVXxZSvmtgv2dEmlwYZygHaEL%26pid%3DApi&f=1',
+            'image': 'https://i.imgur.com/lZWj9he.png',
         },
         {
             'title': 'for Students',
             'text': 'Options to help you on your learning journey',
-            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.JgC3I2Z476tESI-G08DShgHaEL%26pid%3DApi&f=1',
+            'image': 'https://i.imgur.com/jkoK975.png',
         },
         {
             'title': 'for Founders',
             'text': 'Opportunities for collaboration on long-term projects',
-            'image': 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fak0.picdn.net%2Fshutterstock%2Fvideos%2F4055320%2Fthumb%2F1.jpg%3Fi10c%3Dimg.resize(height%3A160)&f=1&nofb=1',
+            'image': 'https://i.imgur.com/24GWSmY.png',
         },
     ]
     majorTilesRow = createRow('major-tiles-row')
@@ -206,12 +206,49 @@ function createWeatherColumn(row, weatherData) {
         .html(d => createCardFromTuple(d))
 }
 
+function createSoundTiles() {
+    sounds = [
+        {
+            'filepath': 'zenbell.mp3',
+            'color': '#777',
+        },
+        {
+            'filepath': 'zen-gong.wav',
+            'color': '#888',
+        },
+        {
+            'filepath': 'tibetan-chant.aifc',
+            'color': '#999',
+        },
+    ]
+    soundRow = bodyContainerDiv
+        .append('div')
+        .classed('sound-row', true)
+    soundRow.style('display', 'flex')
+    soundTiles = soundRow.selectAll('div').data(sounds).enter()
+        .append('div')
+        .style('flex', '1')
+        .style('height', '100px')
+        .style('width', '100px')
+        .style('background-color', d => d.color)
+        .append('audio').attr('src', d => d.filepath)
+    soundRow.selectAll('div').on('click', e => {
+        console.log(e)
+        console.log(e.target)
+        console.log(e.target.children)
+        console.log(e.target.children[0])
+        audioNode = e.target.children[0]
+        audioNode.play()
+    })
+}
+
 window.addEventListener('load', () => {
     weatherApiKey = 'b9cf02917e304aaf876170457212105'
     bodyContainerDiv = createBodyContainer()
     createJumbotron()
+    createSoundTiles()
     createMajorTiles()
     createSocialLinks()
     addAnimations()
-    pullIpData()
+    // pullIpData()
 })

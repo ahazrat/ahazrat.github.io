@@ -2,7 +2,7 @@
 GitHub Pages Website
 
 ### To Do
-1. replace img links with imgur hosted links
+1. add musical tiles to play sounds
 1. show live time
 1. Pages for each major tile
 1. animate colors in background

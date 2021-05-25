@@ -5,7 +5,7 @@ build_log_filename="build.log"
 build_log_filepath="$containing_directory/$project_name/$build_log_filename"
 divider="==========================="
 # commit_message="automated build"
-commit_message="start app after window loads"
+commit_message="add musical tiles to play sounds"
 
 echo $divider >> $build_log_filepath
 date >> $build_log_filepath
