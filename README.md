@@ -2,9 +2,10 @@
 GitHub Pages Website
 
 ### To Do
-1. play mellow background music on page load
 1. Pages for each major tile
 1. animate colors in background
+1. icons for sound tiles
+1. visual controls for all audio nodes
 1. move time into top right of screen
 1. Project tree
     - Project (App) completeness

@@ -12,6 +12,19 @@ function createBodyContainer() {
     return bodyContainerDiv
 }
 
+function setBackgroundMusic() {
+    bassAndDrums = bodyContainerDiv
+        .append('audio')
+        .attr('id', 'bass-and-drums-audio')
+        .attr('src', '572205__josefpres__bass-loops-008-with-drums-short-loop-120-bpm.wav')
+        .attr('loop', true)
+    bassAndDrums.node().volume = 0.1
+    window.addEventListener('click', e => {
+        console.log('playing music')
+        bassAndDrums.node().play()
+    })
+}
+
 function createRow(rowId) {
     newRow = bodyContainerDiv
         .append('div')
@@ -234,12 +247,7 @@ function createSoundTiles() {
         .style('background-color', d => d.color)
         .append('audio').attr('src', d => d.filepath)
     soundRow.selectAll('div').on('click', e => {
-        console.log(e)
-        console.log(e.target)
-        console.log(e.target.children)
-        console.log(e.target.children[0])
-        audioNode = e.target.children[0]
-        audioNode.play()
+        e.target.children[0].play()
     })
 }
 
@@ -274,5 +282,6 @@ window.addEventListener('load', () => {
     createSocialLinks()
     addAnimations()
     setClock()
+    setBackgroundMusic()
     // pullIpData()
 })
