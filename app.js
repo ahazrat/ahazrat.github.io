@@ -57,16 +57,19 @@ function createMajorTiles() {
             'title': 'for Recruiters',
             'text': 'Common details related to career opportunities',
             'image': 'https://i.imgur.com/lZWj9he.png',
+            'url': 'recruiters.html',
         },
         {
             'title': 'for Students',
             'text': 'Options to help you on your learning journey',
             'image': 'https://i.imgur.com/jkoK975.png',
+            'url': 'students.html',
         },
         {
             'title': 'for Founders',
             'text': 'Opportunities for collaboration on long-term projects',
             'image': 'https://i.imgur.com/24GWSmY.png',
+            'url': 'founders.html',
         },
     ]
     majorTilesRow = createRow('major-tiles-row')
@@ -97,7 +100,7 @@ function createMajorTiles() {
     tileCardBodies
         .append('a')
         .classed('btn btn-primary', true)
-        .attr('href', '#') // replace with new pages for each
+        .attr('href', d => d.url) // replace with new pages for each
         .text(d => `Click here ${d.title}`)
 }
 

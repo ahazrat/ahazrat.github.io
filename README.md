@@ -2,8 +2,8 @@
 GitHub Pages Website
 
 ### To Do
-1. Pages for each major tile
 1. animate colors in background
+1. flesh out pages for each major tile
 1. icons for sound tiles
 1. visual controls for all audio nodes
 1. move time into top right of screen
@@ -16,3 +16,4 @@ GitHub Pages Website
     - Real live feed of app metrics
     - Graphical resume
     - https://animejs.com/
+    - tree map: dashboard tracking for all trees on Earth
