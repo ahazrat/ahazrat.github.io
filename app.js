@@ -41,7 +41,7 @@ function createJumbotron() {
         .style('background-color', 'rgba(255, 255, 255, 0.2)')
     jumbotron.append('h1').classed('display-4', true).html('jello, world')
     jumbotron.append('h3').html('The time now is <span id="clock"><span>')
-    jumbotron.append('p').classed('lead', true).html(`This is a simple simulation. You have <span id='countdown'>5</span> seconds left to figure out what you are doing.`)
+    jumbotron.append('p').classed('lead', true).html(`This is a simple simulation.`)
     jumbotron.append('hr').classed('my-4', true)
     jumbotron.append('p').text('We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud while scaling intelligently.')
     jumbotron
@@ -135,27 +135,12 @@ function createSocialLinks() {
         .style('border-radius', '10px')
 }
 
-function addAnimations() {
+function slideText() {
     anime({
         targets: '.display-4',
         translateX: 250,
-        delay: 1000,
-        duration: 1000
-    })
-    spanCountdown = document.querySelector('#countdown')
-    animeData = {
-        secondsLeft: 1000
-    }
-    anime({
-        targets: animeData,
-        secondsLeft: 0,
-        round: 1,
-        easing: 'linear',
-        delay: 1000,
-        duration: 1000 * 1000,
-        update: function() {
-            spanCountdown.innerHTML = animeData.secondsLeft
-        }
+        delay: 100,
+        duration: 3000
     })
 }
 
@@ -254,37 +239,48 @@ function createSoundTiles() {
     })
 }
 
-function setClock() {
-    clock = document.getElementById('clock')
-
-    function time() {
-        d = new Date()
-        h = d.getHours()
-        ampm = ' am'
-        if (h > 12) {
-            h = h - 12
-            ampm = ' pm'
-        }
-        s = d.getSeconds()
-        m = d.getMinutes()
-        clock.textContent = 
-            ("0" + h).substr(-2) + ":" + 
-            ("0" + m).substr(-2) + ":" + 
-            ("0" + s).substr(-2) + ampm
+function setClock(h, m, s) {
+    ampm = ' am'
+    if (h > 12) {
+        h = h - 12
+        ampm = ' pm'
     }
+    clock = document.getElementById('clock')
+    clock.textContent = 
+        ("0" + h).substr(-2) + ":" + 
+        ("0" + m).substr(-2) + ":" + 
+        ("0" + s).substr(-2) + ampm
+}
 
-    setInterval(time, 1000)
+function setBackgroundColor(h, m, s) {
+    condainerDiv = document.getElementsByClassName('gradient')[0]
+    r = h / 24 * 255
+    g = m / 60 * 255
+    b = s / 60 * 255
+    a = 0.4
+    backgroundColor1 = `rgba(${r}, ${g}, ${b}, ${a})`
+    backgroundColor2 = `rgba(${b}, ${r}, ${g}, ${a})`
+    style = `background-image: linear-gradient(to bottom right, ${backgroundColor1}, ${backgroundColor2});`
+    condainerDiv.setAttribute('style', style)
 }
 
 window.addEventListener('load', () => {
     weatherApiKey = 'b9cf02917e304aaf876170457212105'
     bodyContainerDiv = createBodyContainer()
     createJumbotron()
+    setBackgroundColor()
     createSoundTiles()
     createMajorTiles()
     createSocialLinks()
-    addAnimations()
-    setClock()
+    slideText()
     setBackgroundMusic()
+    setInterval(() => {
+        d = new Date()
+        h = d.getHours()
+        m = d.getMinutes()
+        s = d.getSeconds()
+        setClock(h, m, s)
+        setBackgroundColor(h, m, s)
+    }, 1000)
     // pullIpData()
 })
