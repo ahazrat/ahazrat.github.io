@@ -6,6 +6,7 @@ moreData = {
 }
 
 function createBodyContainer() {
+    document.getElementsByTagName('body')[0].setAttribute('style', 'height: 100%')
     bodyContainerDiv = d3.select('body')
         .append('div')
         .classed('container-fluid gradient', true)
@@ -34,21 +35,27 @@ function createRow(rowId) {
     return newRow
 }
 
-function createJumbotron() {
+function createJumbotron(bodyId) {
     // jumbotronRow = createRow('jumbotron-row').style('width', '100%')
     jumbotron = bodyContainerDiv
         .append('div').classed('jumbotron', true)
         .style('background-color', 'rgba(255, 255, 255, 0.2)')
-    jumbotron.append('h1').classed('display-4', true).html('jello, world')
-    jumbotron.append('h3').html('The time now is <span id="clock"><span>')
-    jumbotron.append('p').classed('lead', true).html(`This is a simple simulation.`)
-    jumbotron.append('hr').classed('my-4', true)
-    jumbotron.append('p').text('We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud while scaling intelligently.')
-    jumbotron
-        .append('a').classed('btn btn-primary btn-lg', true)
-        .attr('href', '#')
-        .attr('role', 'button')
-        .html('Learn more')
+    user = 'world'
+    if (bodyId === 'recruiters') {
+        user = bodyId
+    }
+    jumbotron.append('h1').classed('display-4', true).html(`jello, ${user}`)
+    if (bodyId === 'index') {
+        jumbotron.append('h3').html('The time now is <span id="clock"><span>')
+        jumbotron.append('p').classed('lead', true).html(`This is a simple simulation.`)
+        jumbotron.append('hr').classed('my-4', true)
+        jumbotron.append('p').text('We recommend using the latest tools which are optimized for the current situation. These tools run in the cloud while scaling intelligently.')
+        jumbotron
+            .append('a').classed('btn btn-primary btn-lg', true)
+            .attr('href', '#')
+            .attr('role', 'button')
+            .html('Learn more')
+    }
 }
 
 function createMajorTiles() {
@@ -56,13 +63,13 @@ function createMajorTiles() {
         {
             'title': 'for Recruiters',
             'text': 'Common details related to career opportunities',
-            'image': 'https://i.imgur.com/lZWj9he.png',
+            'image': 'https://i.imgur.com/jkoK975.png',
             'url': 'recruiters.html',
         },
         {
             'title': 'for Students',
             'text': 'Options to help you on your learning journey',
-            'image': 'https://i.imgur.com/jkoK975.png',
+            'image': 'https://i.imgur.com/NZGVazA.png',
             'url': 'students.html',
         },
         {
@@ -83,6 +90,7 @@ function createMajorTiles() {
         .append('img')
         .classed('card-img-top', true)
         .attr('src', d => d.image)
+        .attr('height', '337px')
     tileCardBodies = tileCards
         .append('div')
         .classed('card-body', true)
@@ -265,22 +273,36 @@ function setBackgroundColor(h, m, s) {
 }
 
 window.addEventListener('load', () => {
-    weatherApiKey = 'b9cf02917e304aaf876170457212105'
+    body = document.getElementsByTagName('body')[0]
     bodyContainerDiv = createBodyContainer()
-    createJumbotron()
-    setBackgroundColor()
-    createSoundTiles()
-    createMajorTiles()
-    createSocialLinks()
-    slideText()
-    setBackgroundMusic()
-    setInterval(() => {
-        d = new Date()
-        h = d.getHours()
-        m = d.getMinutes()
-        s = d.getSeconds()
-        setClock(h, m, s)
-        setBackgroundColor(h, m, s)
-    }, 1000)
-    // pullIpData()
+
+    if (body.id === 'index') {
+        weatherApiKey = 'b9cf02917e304aaf876170457212105'
+        createJumbotron(body.id)
+        createSoundTiles()
+        createMajorTiles()
+        createSocialLinks()
+        slideText()
+        setBackgroundMusic()
+        setInterval(() => {
+            d = new Date()
+            h = d.getHours()
+            m = d.getMinutes()
+            s = d.getSeconds()
+            setClock(h, m, s)
+            setBackgroundColor(h, m, s)
+        }, 1000)
+        // pullIpData()
+    } else if (body.id === 'recruiters') {
+        createJumbotron(body.id)
+        setInterval(() => {
+            d = new Date()
+            h = d.getHours()
+            m = d.getMinutes()
+            s = d.getSeconds()
+            setBackgroundColor(h, m, s)
+        }, 1000)
+    } else {
+        console.log(`body.id: ${body.id}`)
+    }
 })
