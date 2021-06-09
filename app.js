@@ -44,7 +44,7 @@ function createJumbotron(bodyId) {
     if (bodyId === 'recruiters') {
         user = bodyId
     }
-    jumbotron.append('h1').classed('display-4', true).html(`jello, ${user}`)
+    jumbotron.append('h1').classed('display-4', true).html(`hello, ${user}`)
     if (bodyId === 'index') {
         jumbotron.append('h3').html('The time now is <span id="clock"><span>')
         jumbotron.append('p').classed('lead', true).html(`This is a simple simulation.`)
