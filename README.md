@@ -10,7 +10,6 @@ https://ahazrat.github.io/
 1. fix ratio of tile icons
 1. digital resume
 1. flesh out pages for each major tile
-1. organize audio files
 1. icons for sound tiles
 1. visual controls for all audio nodes
 1. move time into top right of screen

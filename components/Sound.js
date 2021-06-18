@@ -1,14 +1,14 @@
 const sounds = [
     {
-        'filepath': 'zenbell.mp3',
+        'filepath': './assets/sounds/zenbell.mp3',
         'color': '#777',
     },
     {
-        'filepath': 'zen-gong.wav',
+        'filepath': './assets/sounds/zen-gong.wav',
         'color': '#888',
     },
     {
-        'filepath': 'tibetan-chant.aifc',
+        'filepath': './assets/sounds/tibetan-chant.aifc',
         'color': '#999',
     },
 ]
@@ -36,7 +36,7 @@ function setBackgroundMusic(containerDiv) {
     const bassAndDrums = containerDiv
         .append('audio')
         .attr('id', 'bass-and-drums-audio')
-        .attr('src', '572205__josefpres__bass-loops-008-with-drums-short-loop-120-bpm.wav')
+        .attr('src', './assets/sounds/572205__josefpres__bass-loops-008-with-drums-short-loop-120-bpm.wav')
         .attr('loop', true)
     bassAndDrums.node().volume = 0.1
     
