@@ -24,19 +24,27 @@ function createMajorTiles(containerDiv) {
         .append('div')
         .classed('row', true)
         .attr('id', 'major-tiles-row')
-
-    const tileCards = majorTilesRow
+        .style('padding', '50px')
         .style('background-color', 'rgba(220, 220, 220, 0.3)')
-        .selectAll('div').data(dataMajorTiles).enter()
-        .append('div').classed('col', true)
-        .append('div').classed('card', true)
+    
+    const cardGroup = majorTilesRow
+        .append('div')
+        .classed('card-group', true)
+
+    const tileCards = cardGroup
+        .selectAll('div')
+        .data(dataMajorTiles)
+        .enter()
+        .append('div')
+        .classed('card', true)
 
     // card images
     tileCards
         .append('img')
         .classed('card-img-top', true)
         .attr('src', d => d.image)
-        .attr('height', '337px')
+        // .attr('width', '300px')
+        // .attr('height', '300px')
 
     const tileCardBodies = tileCards
         .append('div')

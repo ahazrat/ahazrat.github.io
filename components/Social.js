@@ -21,6 +21,7 @@ function createSocialLinks(containerDiv) {
         .append('div')
         .classed('row', true)
         .attr('id', 'social-links-row')
+        .style('padding', '50px')
 
     socialLinksRow
         .selectAll('div').data(socialLinksData).enter()

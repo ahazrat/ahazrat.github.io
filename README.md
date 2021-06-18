@@ -7,7 +7,6 @@ https://ahazrat.github.io/
 - python3 -m http.server
 
 ### To Do
-1. fix ratio of tile icons
 1. digital resume
 1. flesh out pages for each major tile
 1. icons for sound tiles
