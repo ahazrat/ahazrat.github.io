@@ -63,19 +63,19 @@ function createMajorTiles() {
         {
             'title': 'for Recruiters',
             'text': 'Common details related to career opportunities',
-            'image': 'https://i.imgur.com/jkoK975.png',
+            'image': 'https://i.imgur.com/48m644R.png',
             'url': 'recruiters.html',
         },
         {
             'title': 'for Students',
             'text': 'Options to help you on your learning journey',
-            'image': 'https://i.imgur.com/NZGVazA.png',
+            'image': 'https://i.imgur.com/qCYYtY6.png',
             'url': 'students.html',
         },
         {
             'title': 'for Founders',
             'text': 'Opportunities for collaboration on long-term projects',
-            'image': 'https://i.imgur.com/24GWSmY.png',
+            'image': 'https://i.imgur.com/xqzlgJ6.png',
             'url': 'founders.html',
         },
     ]
