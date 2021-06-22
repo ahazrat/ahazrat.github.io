@@ -1,4 +1,5 @@
 import { createJumbotron } from './components/Jumbotron.js'
+import { resume } from './components/Resume.js'
 import { createSoundTiles, setBackgroundMusic } from './components/Sound.js'
 import { createMajorTiles } from './components/Tiles.js'
 import { createSocialLinks } from './components/Social.js'
@@ -14,6 +15,7 @@ window.addEventListener('load', () => {
 
     if (body.id === 'index') {
         createJumbotron(bodyContainerDiv, body.id)
+        resume(bodyContainerDiv)
         createSoundTiles(bodyContainerDiv)
         createMajorTiles(bodyContainerDiv)
         createSocialLinks(bodyContainerDiv)
