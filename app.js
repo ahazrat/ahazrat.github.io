@@ -6,6 +6,7 @@ import { createSocialLinks } from './components/Social.js'
 import { setClock } from './components/Time.js'
 import { setBackgroundColor } from './components/Color.js'
 import { slideText } from './components/Animation.js'
+// import { visitors } from './assets/dbs/firebase'
 
 window.addEventListener('load', () => {
     const body = document.getElementsByTagName('body')[0]

@@ -9,7 +9,7 @@ function resume(bodyContainerDiv) {
         .append('svg')
         .attr('height', '300px')
         .attr('width', '100%')
-        .style('background-color', 'blue')
+        .style('background-color', 'skyblue')
 
     const width = window.innerWidth * 0.5
     console.log('width: ', width)

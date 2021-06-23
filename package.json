@@ -1,0 +1,30 @@
+{
+  "name": "ahazrat.github.io",
+  "version": "1.0.0",
+  "description": "Github Pages for Asif",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahazrat/ahazrat.github.io.git"
+  },
+  "keywords": [
+    "profile",
+    "github",
+    "pages",
+    "demo",
+    "simulation",
+    "portfolio"
+  ],
+  "author": "Asif Hazrat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahazrat/ahazrat.github.io/issues"
+  },
+  "homepage": "https://github.com/ahazrat/ahazrat.github.io#readme",
+  "dependencies": {
+    "firebase": "^8.6.8"
+  }
+}
