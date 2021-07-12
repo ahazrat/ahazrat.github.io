@@ -1,3 +1,5 @@
+import { firebase } from '../assets/dbs/Firebase.js'
+
 function createJumbotron(containerDiv, bodyId) {
     const jumbotron = containerDiv
         .append('div').classed('jumbotron', true)
@@ -17,6 +19,7 @@ function createJumbotron(containerDiv, bodyId) {
             .attr('href', '#')
             .attr('role', 'button')
             .html('Learn more')
+        jumbotron.append('p').text('Firebase Data: ')
     }
 }
 
