@@ -1,5 +1,8 @@
 const dataMajorTiles = [
     {
+        // https://github.com/novuhq/novu
+    }
+    {
         'title': 'for Recruiters',
         'text': 'Common details related to career opportunities',
         'image': 'https://i.imgur.com/48m644R.png',
